@@ -18,6 +18,10 @@ public class Employee {
     private String emailId;
     private Number salary;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "dept_id", nullable = false)
+    private Department department;
+
     public Long getId() {
         return id;
     }
@@ -56,6 +60,14 @@ public class Employee {
 
     public void setSalary(Number salary) {
         this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
 }
